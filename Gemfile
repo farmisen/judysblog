@@ -42,7 +42,7 @@ group :test do
   gem "minitest-reporters", '>= 0.5.0'
 end
 
-group :developement, :test do
+group :development, :test do
   gem "pry"
   gem 'sqlite3'
 end
