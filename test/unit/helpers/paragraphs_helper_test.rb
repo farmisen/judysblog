@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class ParagraphsHelperTest < ActionView::TestCase
+class BlocksHelperTest < ActionView::TestCase
 end

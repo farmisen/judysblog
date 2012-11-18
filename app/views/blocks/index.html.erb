@@ -1,0 +1,23 @@
+<h1>Listing blocks</h1>
+
+<table>
+  <tr>
+    <th>Body</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @blocks.each do |block| %>
+  <tr>
+    <td><%= block.body %></td>
+    <td><%= link_to 'Show', post_block_path(@post, block) %></td>
+    <td><%= link_to 'Edit', edit_post_block_path(@post, block) %></td>
+    <td><%= link_to 'Destroy', post_block_path(@post, block), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Block', new_post_block_path(@post) %>

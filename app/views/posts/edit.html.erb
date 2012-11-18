@@ -13,21 +13,21 @@
     <th></th>
   </tr>
 
-  <% @post.paragraphs.each do |paragraph| %>
+  <% @post.blocks.each do |block| %>
       <tr>
-        <td><%= paragraph.position %></td>
-        <td><%= paragraph.body %></td>
-        <td><%= link_to 'Edit', edit_post_paragraph_path(@post, paragraph) %></td>
-        <td><%= link_to 'Up', post_paragraph_up_path(@post, paragraph), :method => :put %></td>
-        <td><%= link_to 'Down', post_paragraph_down_path(@post, paragraph), :method => :put %></td>
-        <td><%= link_to 'Destroy', post_paragraph_path(@post, paragraph), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= block.position %></td>
+        <td><%= block.body %></td>
+        <td><%= link_to 'Edit', edit_post_block_path(@post, block) %></td>
+        <td><%= link_to 'Up', post_block_up_path(@post, block), :method => :put %></td>
+        <td><%= link_to 'Down', post_block_down_path(@post, block), :method => :put %></td>
+        <td><%= link_to 'Destroy', post_block_path(@post, block), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
   <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Add a paragraph', new_post_paragraph_path(@post) %><br>
+<%= link_to 'Add a block', new_post_block_path(@post) %><br>
 
 
 <%= link_to 'Show', @post %> |

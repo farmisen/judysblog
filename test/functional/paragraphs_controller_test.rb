@@ -1,15 +1,15 @@
 require 'test_helper'
 
-class ParagraphsControllerTest < ActionController::TestCase
+class BlocksControllerTest < ActionController::TestCase
   setup do
-    @paragraph = paragraphs(:one)
+    @block = blocks(:one)
     @post = posts(:one)
   end
 
   test "should get index" do
     get :index, :post_id=> @post.id
     assert_response :success
-    assert_not_nil assigns(:paragraphs)
+    assert_not_nil assigns(:blocks)
   end
 
   test "should get new" do
@@ -17,34 +17,34 @@ class ParagraphsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create paragraph" do
-    assert_difference('Paragraph.count') do
-      post :create, paragraph: { body: @paragraph.body }, :post_id=> @post.id
+  test "should create block" do
+    assert_difference('Block.count') do
+      post :create, block: { body: @block.body }, :post_id=> @post.id
     end
 
-    assert_redirected_to paragraph_path(assigns(:paragraph))
+    assert_redirected_to block_path(assigns(:block))
   end
 
-  test "should show paragraph" do
-    get :show, id: @paragraph, :post_id=> @post.id
+  test "should show block" do
+    get :show, id: @block, :post_id=> @post.id
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @paragraph, :post_id=> @post.id
+    get :edit, id: @block, :post_id=> @post.id
     assert_response :success
   end
 
-  test "should update paragraph" do
-    put :update, id: @paragraph, paragraph: { body: @paragraph.body }, :post_id=> @post.id
-    assert_redirected_to paragraph_path(assigns(:paragraph))
+  test "should update block" do
+    put :update, id: @block, block: { body: @block.body }, :post_id=> @post.id
+    assert_redirected_to block_path(assigns(:block))
   end
 
-  test "should destroy paragraph" do
-    assert_difference('Paragraph.count', -1) do
-      delete :destroy, id: @paragraph, :post_id=> @post.id
+  test "should destroy block" do
+    assert_difference('Block.count', -1) do
+      delete :destroy, id: @block, :post_id=> @post.id
     end
 
-    assert_redirected_to paragraphs_path
+    assert_redirected_to blocks_path
   end
 end

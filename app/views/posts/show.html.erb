@@ -5,9 +5,9 @@
   <%= @post.title %>
 </p>
 
-<% @post.paragraphs.each do |paragraph| %>
+<% @post.blocks.each do |block| %>
     <p>
-      <%= paragraph.body %>
+      <%= block.body %>
     </p>
 <% end %>
 

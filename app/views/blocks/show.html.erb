@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Body:</b>
+  <%= @block.body %>
+</p>
+
+
+<%= link_to 'Edit', edit_post_block_path(@post, @block) %> |
+<%= link_to 'Back', post_blocks_path(@post) %>

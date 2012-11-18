@@ -1,6 +1,6 @@
 Blog::Application.routes.draw do
   resources :posts do
-    resources :paragraphs do
+    resources :blocks do
       put 'up'
       put 'down'
     end

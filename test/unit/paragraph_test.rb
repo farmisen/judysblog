@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class ParagraphTest < ActiveSupport::TestCase
-  test "should not save orphaned paragraph" do
-    paragraph = Paragraph.new
-    assert !paragraph.save
+class BlockTest < ActiveSupport::TestCase
+  test "should not save orphaned block" do
+    block = Block.new
+    assert !block.save
     end
 end
