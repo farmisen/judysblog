@@ -5,6 +5,7 @@
 
 <table>
   <tr>
+    <th>Img</th>
     <th>Pos</th>
     <th>Body</th>
     <th></th>
@@ -15,6 +16,7 @@
 
   <% @post.blocks.each do |block| %>
       <tr>
+        <td><%= image_tag block.image.url(:small) %></td>
         <td><%= block.position %></td>
         <td><%= block.body %></td>
         <td><%= link_to 'Edit', edit_post_block_path(@post, block) %></td>

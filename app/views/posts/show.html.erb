@@ -7,6 +7,7 @@
 
 <% @post.blocks.each do |block| %>
     <p>
+      <%= image_tag block.image.url(:small) %>
       <%= block.body %>
     </p>
 <% end %>

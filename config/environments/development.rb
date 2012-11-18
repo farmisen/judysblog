@@ -40,3 +40,5 @@ silence_warnings do
   require 'pry'
   ## IRB = Pry
 end
+
+Paperclip.options[:command_path] = "/usr/local/bin/"

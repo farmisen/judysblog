@@ -45,10 +45,13 @@ group :test do
 end
 
 group :development, :test do
-  gem "pry"
+  gem 'pry'
   gem 'sqlite3'
 end
 
 group :production do
   gem 'pg'
 end
+
+gem 'paperclip'
+gem 'aws-sdk'
