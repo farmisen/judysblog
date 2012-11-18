@@ -44,12 +44,12 @@ class ParagraphsController < ApplicationController
   # POST /paragraphs
   # POST /paragraphs.json
   def create
-    @paragraph = Paragraph.new(params[:paragraph])
-    @paragraph.post = @post
+    @paragraph = @post.paragraphs.new(params[:paragraph])
+    # @paragraph.post = @post
 
     respond_to do |format|
       if @paragraph.save
-        format.html { redirect_to @paragraph, notice: 'Paragraph was successfully created.' }
+        format.html { redirect_to edit_post_url(@post), notice: 'Paragraph was successfully created.' }
         format.json { render json: @paragraph, status: :created, location: @paragraph }
       else
         format.html { render action: "new" }
@@ -65,7 +65,7 @@ class ParagraphsController < ApplicationController
     @paragraph.post = @post
     respond_to do |format|
       if @paragraph.update_attributes(params[:paragraph])
-        format.html { redirect_to @paragraph, notice: 'Paragraph was successfully updated.' }
+        format.html { redirect_to edit_post_url(@post), notice: 'Paragraph was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -74,6 +74,24 @@ class ParagraphsController < ApplicationController
     end
   end
 
+
+  def up
+    @paragraph = Paragraph.find(params[:paragraph_id])
+    @paragraph.move_higher
+    respond_to do |format|
+      format.html { redirect_to edit_post_url(@post), notice: 'Paragraph was successfully moved up.' }
+    end
+  end
+
+  def down
+    @paragraph = Paragraph.find(params[:paragraph_id])
+    @paragraph.move_lower
+    respond_to do |format|
+      format.html { redirect_to edit_post_url(@post), notice: 'Paragraph was successfully moved down.' }
+    end
+  end
+
+
   # DELETE /paragraphs/1
   # DELETE /paragraphs/1.json
   def destroy
@@ -81,7 +99,7 @@ class ParagraphsController < ApplicationController
     @paragraph.destroy
 
     respond_to do |format|
-      format.html { redirect_to paragraphs_url }
+      format.html { redirect_to edit_post_url(@post) }
       format.json { head :no_content }
     end
   end

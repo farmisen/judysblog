@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121117184135) do
+ActiveRecord::Schema.define(:version => 20121118024052) do
 
   create_table "paragraphs", :force => true do |t|
     t.text     "body"
     t.integer  "post_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "position"
   end
 
   add_index "paragraphs", ["post_id"], :name => "index_paragraphs_on_post_id"
