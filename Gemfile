@@ -40,10 +40,9 @@ gem 'jquery-rails'
 group :test do
   gem "minitest"
   gem "minitest-reporters", '>= 0.5.0'
-  gem 'sqlite3'
 end
 
-group :developement do
+group :developement, :test do
   gem "pry"
   gem 'sqlite3'
 end
