@@ -5,7 +5,7 @@ gem 'rails', '3.2.9'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+
 
 
 # Gems used only for assets and not required
@@ -40,9 +40,14 @@ gem 'jquery-rails'
 group :test do
   gem "minitest"
   gem "minitest-reporters", '>= 0.5.0'
+  gem 'sqlite3'
 end
 
 group :developement do
   gem "pry"
+  gem 'sqlite3'
 end
 
+group :production do
+  gem 'pg'
+end
