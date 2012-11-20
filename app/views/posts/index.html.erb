@@ -1,23 +1,11 @@
-<h1>Listing posts</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <% @posts.each do |post| %>
+      <article class='well'>
+        <h3><%= link_to post.title, post %></h3>
+        <p class="time muted"><time datetime="<%=post.created_at%>"><%= l post.created_at %></time></p>
+      </article>
+  <% end %>
 
-<% @posts.each do |post| %>
-  <tr>
-    <td><%= post.title %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+  <br/>
 
-<br />
-
-<%= link_to 'New Post', new_post_path %>
+  <%= link_to 'New Post', new_post_path %>

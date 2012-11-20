@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blog</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <title><%= ENV['BLOG_NAME'] %></title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 </head>
 <body>
 
-<%= yield %>
+
+<div class="container">
+  <h1><%= ENV['BLOG_NAME'] %></h1>
+
+  <div class="row">
+    <div class="span8">
+      <%= yield %>
+    </div>
+
+    <div class="span4">
+      <div class="well sidebar-nav">
+        <ul class="nav nav-list">
+          <li class="nav-header">About Me</li>
+          <li>Author Data</li>
+          <li class="nav-header">Recent Posts</li>
+          <li>link1</li>
+          <li>link1</li>
+          <li>link1</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

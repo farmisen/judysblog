@@ -12,4 +12,14 @@ class Block < ActiveRecord::Base
       large: '256x256>',
   }
 
+  def isTextBlock()
+    res = self.image.to_s =~ /missing/
+    return !res.nil? && res > 0
+  end
+
+  def isImageBlock()
+    return !self.isTextBlock()
+  end
+
+
 end

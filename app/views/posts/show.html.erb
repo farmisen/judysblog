@@ -1,17 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
 
-<% @post.blocks.each do |block| %>
-    <p>
-      <%= image_tag block.image.url(:small) %>
-      <%= block.body %>
+<article class="well">
+  <header>
+    <h3><%= @post.title %></h3>
+
+    <p class="time muted">
+      <time datetime="<%= @post.created_at %>"><%= l @post.created_at %></time>
     </p>
-<% end %>
+  </header>
 
+  <% @post.blocks.each do |block| %>
+      <% if block.isTextBlock() %>
+          <div>
+            <%= block.body %>
+          </div>
+      <% else %>
+          <figure style="display: inline-block; white-space: normal;">
+            <%= image_tag block.image.url(:small) %>
+            <figcaption><%= block.body %></figcaption>
+          </figure>
+      <% end %>
+  <% end %>
+
+</article>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
