@@ -55,7 +55,7 @@ end
 
 gem 'paperclip'
 gem 'aws-sdk'
-
+gem 'devise'
 
 group :assets do
   gem "therubyracer"

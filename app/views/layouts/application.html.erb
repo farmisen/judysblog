@@ -10,9 +10,22 @@
 </head>
 <body>
 
-<a href="https://github.com/farmisen/judysblog"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+
 
 <div class="container">
+  <div id="user_nav">
+    <% if admin_signed_in? %>
+        Signed in as <%= current_admin.email %>. Not you?
+        <%= link_to "Sign out", destroy_admin_session_path, :method => :delete %>
+    <% else %>
+        <%= link_to "sign in", new_admin_session_path %>
+    <% end %>
+  </div>
+
+  <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+  <% end %>
+
   <h1><%= ENV['BLOG_NAME'] %></h1>
 
   <div class="row">
